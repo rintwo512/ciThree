@@ -69,24 +69,21 @@
     }
 
     .swal2-popup {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
     }
 
     .swal2-icon {
-        font-size: 30px;
-
+        font-size: 20px;
         margin-top: -30px;
     }
 
-
-
     .swal2-title {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .swal2-content {
-        font-size: 25px;
+        font-size: 20px;
     }
 
     .swal2-footer a {

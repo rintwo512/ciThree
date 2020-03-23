@@ -40,6 +40,7 @@ class Auth extends CI_Controller
         } else {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
+            $user_login = "online";
             $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
 
@@ -57,9 +58,15 @@ class Auth extends CI_Controller
                         ];
                         $this->session->set_userdata($data);
                         if ($user['level'] == 'Admin') {
+                            $this->db->set('user_login', $user_login);
+                            $this->db->where('email', $this->session->userdata('email'));
+                            $this->db->update('user');
                             $this->session->set_flashdata('pesan', 'Anda login sebagai ADMIN');
                             redirect('admin');
                         } else {
+                            $this->db->set('user_login', $user_login);
+                            $this->db->where('email', $this->session->userdata('email'));
+                            $this->db->update('user');
                             $this->session->set_flashdata('pesan', 'Anda login sebagai USER');
                             redirect('admin');
                         }
@@ -143,8 +150,13 @@ class Auth extends CI_Controller
 
     public function logout()
     {
+        $user_login = "offline";
+        $this->db->set('user_login', $user_login);
+        $this->db->where('email', $this->session->userdata('email'));
+        $this->db->update('user');
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('level');
+
 
         redirect('auth');
     }

@@ -3,6 +3,11 @@
 class Admin_model extends CI_Model
 {
 
+    function login()
+    {
+        $this->db->where_in('user_login');
+        return $query = $this->db->get('user');
+    }
 
 
     function update_profile($nama, $email)

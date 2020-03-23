@@ -20,5 +20,4 @@ function akses()
 function time_zone()
 {
     date_default_timezone_set("Asia/Makassar");
-    echo date_default_timezone_get();
 }

@@ -32,11 +32,10 @@ class Data_users extends CI_Controller
         $this->form_validation->set_rules(
             'nik',
             'NIK',
-            'trim|numeric|max_length[8]|min_length[8]|is_unique[user.nik]',
+            'required|trim|numeric|max_length[8]|min_length[8]',
             [
                 'min_length' => 'Minimal 8 angka !',
                 'max_length' => 'Maximal 8 angka !',
-                'is_unique' => 'Nomor NIK sudah digunakan !',
                 'numeric' => 'Tidak boleh berisi karakter lain,kecuali angka !'
             ]
         );
@@ -48,6 +47,7 @@ class Data_users extends CI_Controller
 
             $this->load->view('admin/update_user', $data);
         } else {
+
             $this->Data_users_model->update($id);
             $this->session->set_flashdata('popbox', 'Data berhasil ubah');
             redirect('data_users');

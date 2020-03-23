@@ -56,32 +56,37 @@
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i style="color:black" class="fa fa-envelope-o"></i>
-                                <span class="label label-danger">4</span>
+                                <span class="label label-danger">0</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">You have 4 messages</li>
+                                <li class="header"></li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
                                         <li>
                                             <!-- start message -->
+                                            <?php foreach ($log as $lo) : ?>
+                                            <?php if ($lo['user_login'] == "online") : ?>
                                             <a href="#">
                                                 <div class="pull-left">
-                                                    <img src="<?= base_url('asset/dist/img/') . $user['foto']; ?>"
+                                                    <img src="<?= base_url('asset/dist/img/') . $lo['foto']; ?>"
                                                         class="img-circle" alt="User Image">
                                                 </div>
                                                 <h4>
-                                                    <?= $user['nama']; ?>
-                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                    <?= $lo['nama']; ?>
+                                                    <!-- <small><i ></i> 5 mins</small> -->
                                                 </h4>
-                                                <p>Why not buy a new awesome theme?</p>
+                                                <p><i class="fa fa-circle text-success"></i> <?= $lo['user_login']; ?>
+                                                </p>
                                             </a>
+                                            <?php endif; ?>
+                                            <?php endforeach; ?>
                                         </li>
                                         <!-- end message -->
 
                                     </ul>
                                 </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
+                                <!-- <li class="footer"><a href="#">See All Messages</a></li> -->
                             </ul>
                         </li>
                         <li class="dropdown user user-menu">

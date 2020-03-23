@@ -184,9 +184,9 @@
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <input type="submit" class="btn btn-primary" name="simpan" value="Simpan">
                                     <a href="<?= base_url('data_users'); ?>" type="submit"
-                                        class="btn btn-danger pull-right">Back</a>
+                                        class="btn btn-danger pull-right">Kembali</a>
                                 </div>
                             </form>
                         </div>

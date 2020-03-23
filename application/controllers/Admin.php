@@ -16,13 +16,17 @@ class Admin extends CI_Controller
     public function index()
     {
 
+        // $log = $this->Admin_model->login();
 
+
+        $data['log'] = $this->db->get('user')->result_array();
 
 
 
 
         $data['ac'] = $this->db->get('tb_ac')->num_rows();
         $data['apart'] = $this->db->get('tb_apart')->num_rows();
+
         $data['total_users'] = $this->db->get('user')->num_rows();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
