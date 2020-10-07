@@ -1,3 +1,9 @@
+<?php
+$online = $this->db->get_where('user', ['user_login' => 'online'])->num_rows();
+$log = $this->db->get('user')->result_array();
+
+?>
+
 <style>
 .logo-mini,
 .logo-lg {
@@ -17,11 +23,11 @@
 }
 
 .navbar-static-top {
-    background: greenyellow !important;
+    background: darkred !important;
 }
 
 .logo {
-    background: greenyellow !important;
+    background: darkred !important;
 
 }
 </style>
@@ -56,7 +62,7 @@
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i style="color:black" class="fa fa-envelope-o"></i>
-                                <span class="label label-danger">0</span>
+                                <span class="label label-danger" id="notif"><?= $online; ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="header"></li>
@@ -90,6 +96,7 @@
                             </ul>
                         </li>
                         <li class="dropdown user user-menu">
+
                             <a href="#" style="color:black" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user"></i>
                                 <span class="hidden-xs"><?= $user['nama']; ?></span>
@@ -108,8 +115,8 @@
                                         <a href="<?= base_url('admin/profile'); ?>" class="btn btn-info">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" data-toggle="modal" data-target="#modal-default"
-                                            class="btn btn-danger">Keluar</a>
+                                        <a id="logout" href="<?= base_url('auth/logout'); ?>"
+                                            class="btn btn-default">Keluar</a>
                                     </div>
                                 </li>
                             </ul>
@@ -123,3 +130,23 @@
                 </div>
             </nav>
         </header>
+        <script src="<?= base_url('asset/'); ?>bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="<?= base_url('asset/'); ?>sweetalert/sweetalert2.all.min.js"></script>
+        <script>
+        $(document).ready(function() {
+
+
+
+            var interval = setInterval(function() {
+                $.ajax({
+                    url: "<?= base_url(); ?>Admin/get_ajax",
+                    type: "POST",
+                    dataType: "json",
+                    data: {},
+                    success: function(data) {
+                        $('#notif').html(data.tot);
+                    }
+                });
+            }, 2000);
+        })
+        </script>

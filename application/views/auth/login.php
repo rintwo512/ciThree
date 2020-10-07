@@ -15,12 +15,15 @@
     * {
         outline: none;
         font-family: 'Courier New', Courier, monospace;
+
     }
 
     body {
+
         background-image: url(asset/dist/img/jem.jpg);
         background-position: center;
         background-size: cover;
+
     }
 
     .form {
@@ -30,6 +33,7 @@
         height: 510px;
         border-top-right-radius: 10%;
         border-bottom-left-radius: 10%;
+
     }
 
     .box {
@@ -122,32 +126,7 @@
             1px 1px 2px rgba(0, 0, 0, 0.8);
     }
 
-    .swal2-popup {
-        width: 400px;
-        height: 400px;
-    }
 
-    .swal2-icon {
-        font-size: 30px;
-
-        margin-top: -30px;
-    }
-
-
-
-    #swal2-title {
-        font-size: 30px;
-    }
-
-    #swal2-content {
-        font-size: 20px;
-        font-family: 'Courier New', Courier, monospace;
-    }
-
-    .swal2-footer a {
-        color: #fff;
-
-    }
     </style>
 
 </head>
@@ -185,7 +164,7 @@
         $(document).on('click', '#forgot_pass', function(e) {
             e.preventDefault();
             Swal.fire({
-                type: 'warning',
+                type: 'error',
                 title: 'Maaf...',
                 text: 'Silahkan Hubungi Admin !'
             });

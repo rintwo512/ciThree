@@ -173,7 +173,7 @@
                                     <td><?= date('d M Y', $apr['tanggal_update']); ?></td>
                                     <td>
 
-                                        <a href="<?= base_url('apart/ubah/') . $apr['id']; ?>"
+                                        <a href="<?= base_url('apart/ubah/' . $apr['id']); ?>"
                                             class="btn btn-success btn-sm but"> <i class="fa fa-pencil"></i>
                                         </a>
 
@@ -222,9 +222,6 @@
                 <h4 class="modal-title text-center">Form Tambah Data</h4>
             </div>
             <div class="modal-body">
-
-                <!-- /.box-header -->
-                <!-- form start -->
                 <form action="<?= base_url('apart/tambah'); ?>" method="post" role="form">
                     <div class="box-body" id="add">
                         <div class="col-md-6">
@@ -339,11 +336,6 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-
-
-
-
 
 
 <div class="modal fade" id="details">

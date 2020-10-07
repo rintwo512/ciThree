@@ -18,7 +18,30 @@
     <!-- Custom styles for this template -->
     <link href="<?= base_url('asset/'); ?>dashio/css/style.css" rel="stylesheet">
     <link href="<?= base_url('asset/'); ?>dashio/css/style-responsive.css" rel="stylesheet">
+    <style>
+    .swal2-popup {
+        width: 400px;
+        height: 350px;
+    }
 
+    .swal2-icon {
+        font-size: 20px;
+        margin-top: -30px;
+    }
+
+    .swal2-title {
+        font-size: 25px;
+    }
+
+    .swal2-content {
+        font-size: 20px;
+    }
+
+    .swal2-footer a {
+        color: #fff;
+
+    }
+    </style>
 
 </head>
 

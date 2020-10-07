@@ -82,9 +82,6 @@ class Ac extends CI_Controller
     public function update($id)
     {
 
-
-
-
         $data['kapasitas'] = ['1/2 PK', '3/4 PK', '1 PK', '1,5 PK', '2 PK', '2,5 PK', '3 PK', '5 PK'];
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -202,6 +199,7 @@ class Ac extends CI_Controller
 
             $this->load->view('ac/update', $data);
         } else {
+
             $data =
                 [
 
@@ -224,6 +222,9 @@ class Ac extends CI_Controller
                     "catatan" => $this->input->post('catatan'),
                     "tanggal" => time()
                 ];
+
+
+
 
             $chat_id = "-381779502";
             $message = "*<<<<<<<< PESAN OTOMATIS >>>>>>>>*" . "\n\n" .

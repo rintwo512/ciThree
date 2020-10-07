@@ -6,10 +6,16 @@
 
 }
 
-#logout:hover {
+.logout:hover {
     color: red !important;
     border-left: 3px solid red;
     border-right: 3px solid red;
+}
+
+.aktif {
+    color: greenyellow !important;
+    border-left: 3px solid greenyellow !important;
+    border-right: 3px solid greenyellow;
 }
 </style>
 <!-- Left side column. contains the sidebar -->
@@ -32,18 +38,18 @@
                 <?= $user['level']; ?>
             </li>
 
-            <li>
-                <a id="li" href="<?= base_url('admin'); ?>">
+            <li id="li">
+                <a href="<?= base_url('admin'); ?>">
                     <i class="fa fa-home"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li>
-                <a id="li" href="<?= base_url('admin/profile'); ?>">
+            <li id="li">
+                <a href="<?= base_url('admin/profile'); ?>">
                     <i class="fa fa-user"></i> <span>Profile</span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#" id="li">
+            <li class="treeview" id="li">
+                <a href="#">
                     <i class="fa fa-laptop"></i> <span>Data Perangkat</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -57,8 +63,8 @@
                 </ul>
             </li>
             <?php if ($user['level'] == "Admin") : ?>
-            <li class="treeview">
-                <a href="#" id="li">
+            <li class="treeview" id="li">
+                <a href="#">
                     <i class="fa fa-bar-chart"></i> <span>Grafik</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -74,8 +80,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview">
-                <a href="#" id="li">
+            <li class="treeview" id="li">
+                <a href="#">
                     <i class="fa fa-user-plus"></i> <span>Pengguna</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -92,8 +98,8 @@
             </li>
             <?php endif; ?>
             <?php if ($user['level'] != "Admin") : ?>
-            <li class="treeview">
-                <a href="#" id="li">
+            <li class="treeview" id="li">
+                <a href="#">
                     <i class="fa fa-bar-chart"></i> <span>Grafik</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -108,14 +114,20 @@
                 </ul>
             </li>
             <?php endif; ?>
-            <li><a id="li" href="<?= base_url('kunci_layar'); ?>"><i class="fa fa-lock"></i>
-                    <span>Kunci Layar</span></a></li>
-            <li><a id="logout" href="<?= base_url('auth/logout'); ?>"><i class="fa fa-sign-out"></i>
-                    <span>Keluar</span></a></li>
-            <li class="header text-center" style="color:aqua;  font-size:15px; font-family:'Courier New'">
-                <?= date('l,d M Y'); ?>
+
+            <li id="li"><a href="<?= base_url('kunci_layar'); ?>"><i class="fa fa-lock"></i><span>Kunci Layar</span></a>
             </li>
+
+            <li class="logout">
+                <a id="logout" href="<?= base_url('auth/logout'); ?>"><i
+                        class="fa fa-sign-out"></i><span>Keluar</span></a>
+            </li>
+
+
             <li id="time" class="header text-center" style="color:aqua;  font-size:25px; font-family:'Courier New'">
+            </li>
+            <li class="text-center" style="color:aqua;  font-size:15px; font-family:'Courier New'">
+                <?= date('l,d M Y'); ?>
             </li>
             <!-- data-toggle="modal" data-target="#modal-default" -->
         </ul>

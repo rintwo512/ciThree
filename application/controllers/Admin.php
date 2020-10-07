@@ -15,15 +15,7 @@ class Admin extends CI_Controller
     }
     public function index()
     {
-
-        // $log = $this->Admin_model->login();
-
-
-        $data['log'] = $this->db->get('user')->result_array();
-
-
-
-
+        
         $data['ac'] = $this->db->get('tb_ac')->num_rows();
         $data['apart'] = $this->db->get('tb_apart')->num_rows();
 
@@ -35,6 +27,14 @@ class Admin extends CI_Controller
         $this->load->view('admin/index', $data);
         $this->load->view('templates/skin');
         $this->load->view('templates/footer');
+    }
+
+    public function get_ajax()
+    {
+        $tot = $this->db->get_where('user', ['user_login' => 'online'])->num_rows();
+        $result['tot'] = $tot;
+
+        echo json_encode($result);
     }
 
     public function profile()
@@ -130,7 +130,7 @@ class Admin extends CI_Controller
                 redirect('admin/ubah_password', 'refresh');
             } else {
                 if ($password_baru == $password_lama) {
-                    $this->session->set_flashdata('alert', 'Password baru tidak boleh sama dengan password baru !');
+                    $this->session->set_flashdata('alert', 'Password baru tidak boleh sama dengan password lama !');
                     redirect('admin/ubah_password', 'refresh');
                 } else {
                     $password_hash = password_hash($password_baru, PASSWORD_DEFAULT);

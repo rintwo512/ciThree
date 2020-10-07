@@ -178,8 +178,7 @@
                                     <td><?= $ac['type']; ?></td>
                                     <td><?= $ac['jenis']; ?></td>
                                     <?php if ($ac['status'] == "Normal") : ?>
-                                    <td><a href="#" class="label label-info" title="<?= $ac['jenis_kerusakan'] ?>"
-                                            data-toggle="tooltip">
+                                    <td><a href="#" class="label label-info">
                                             <?= $ac['status'] ?></a>
                                     </td>
                                     <?php else : ?>
